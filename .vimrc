@@ -1,5 +1,3 @@
-call pathogen#infect()
-
 filetype plugin on
 filetype indent on
 syntax on
@@ -113,4 +111,6 @@ let g:clang_user_options='|| exit 0'
 "endfunction
 " 
 "inoremap <tab> <c-r>=CompleteTab()<cr>
-"
+
+call pathogen#infect()
+
