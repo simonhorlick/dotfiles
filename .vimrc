@@ -70,8 +70,13 @@ set laststatus=2
 " This shows what you are typing as a command.
 set showcmd
 
-let g:clang_use_library=1
-let g:clang_library_path="/opt/local/libexec/llvm-3.1/lib/"
+" SuperTab option for context aware completion
+let g:SuperTabDefaultCompletionType = "context"
+
+set completeopt=menu,menuone,longest
+
+"let g:clang_use_library=1
+"let g:clang_library_path="/opt/local/libexec/llvm-3.1/lib/"
 " open quickfix on error
 let g:clang_complete_copen = 1
 let g:clang_user_options='|| exit 0'
