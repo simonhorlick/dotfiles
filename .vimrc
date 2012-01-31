@@ -58,6 +58,7 @@ set nocompatible
 " Unix like auto-completion
 set wildmenu
 set wildmode=list:longest
+set wildignore+=*.o,*.obj,.git
 
 " Ignore case sensitivity when searching
 set ignorecase
