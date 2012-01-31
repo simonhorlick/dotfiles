@@ -13,3 +13,6 @@
 [submodule ".vim/bundle/clang_complete_schmallon"]
 	path = .vim/bundle/clang_complete_schmallon
 	url = git://github.com/Schmallon/clang_complete.git
+[submodule ".vim/bundle/clang_complete"]
+	path = .vim/bundle/clang_complete
+	url = git://github.com/Schmallon/clang_complete.git
