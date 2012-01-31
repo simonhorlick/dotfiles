@@ -9,7 +9,7 @@
 	url = git://github.com/msanders/snipmate.vim.git
 [submodule ".vim/bundle/command-t"]
 	path = .vim/bundle/command-t
-	url = https://github.com/wincent/Command-T.git
+	url = git://github.com/wincent/Command-T.git
 [submodule ".vim/bundle/clang_complete_schmallon"]
 	path = .vim/bundle/clang_complete_schmallon
 	url = git://github.com/Schmallon/clang_complete.git
