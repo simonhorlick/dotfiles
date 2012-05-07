@@ -1,0 +1,9 @@
+# Set video driver.
+vo=xv
+
+# Use double-buffering.
+double=yes
+
+# Multithreaded decoding
+lavdopts=threads=4
+
