@@ -10,10 +10,10 @@ if has('gui_running')
     set guioptions-=m
     set guioptions-=T
     set lines=25 columns=83
-"else
-"    colorscheme molokai
+    colorscheme google
+else
+    colorscheme molokai
 endif
-colorscheme google
     
 " Default formatting
 set tabstop=4
@@ -93,6 +93,7 @@ let g:clang_user_options='|| exit 0'
 noremap <leader>p :python clang_plugin.jump_to_definition()<CR>
 noremap <leader>o :python clang_plugin.jump_to_declaration()<CR>
 noremap <leader>i :python clang_plugin.get_current_completions()<CR>
+noremap <leader>m :make<CR>
 
 map <Leader>t :!./test<CR>
 
