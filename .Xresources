@@ -1,0 +1,11 @@
+Xft*antialias: true
+Xft*hinting: true
+Xft*hintstyle: hintfull
+
+xterm*termName: xterm-256color
+xterm*dynamicColors: true
+xterm*faceName: Monaco
+xterm*faceSize: 14
+xterm*background: white
+xterm*foreground: black
+
