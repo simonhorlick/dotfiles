@@ -4,11 +4,13 @@ filetype plugin on
 filetype indent on
 syntax on
 
+set path=.,/usr/local/include,/usr/include
+
 let mapleader = ","
 
 set t_Co=256
 if has('gui_running')
-    set guifont=Monaco:h12
+    set guifont=Monaco:h15
     set guioptions-=m
     set guioptions-=T
     set lines=25 columns=83
@@ -68,9 +70,19 @@ set ignorecase
 " ...but only if lower case letters are used.
 set smartcase
 
-inoremap jj <ESC>
-
 set laststatus=2
+
+function! X264PSNR()
+    if filereadable("psnr_stats_line")
+        return system("./psnr_stats_line")
+    else
+        return ''
+    endif
+endfunction
+
+set statusline=%F%m%r%h%w\ %=
+set statusline+=%{fugitive#statusline()}\ 
+set statusline+=%{X264PSNR()}\ 
 
 " This shows what you are typing as a command.
 set showcmd
@@ -85,10 +97,10 @@ set completeopt=menu,menuone,longest
 let g:clang_use_library=1
 
 " open quickfix on error
-let g:clang_complete_copen = 1
+let g:clang_complete_copen = 0
 let g:clang_periodic_quickfix = 0
 " select suggestion and insert into code
-let g:clang_auto_select = 1
+let g:clang_auto_select=2
 
 map <Leader>m :make<CR>
 
@@ -97,4 +109,3 @@ map <Left> :echo "NOOOOOO!"<cr>
 map <Right> :echo "NOOOOOO!"<cr>
 map <Up> :echo "NOOOOOO!"<cr>
 map <Down> :echo "NOOOOOO!"<cr>
-
