@@ -1,41 +1,34 @@
 import XMonad
-import XMonad.Hooks.DynamicLog
+import XMonad.Layout
 import XMonad.Hooks.ManageDocks
-import System.IO.UTF8
+import XMonad.Config (defaultConfig)
+import XMonad.Actions.GridSelect
+import XMonad.Layout.NoBorders
+import XMonad.Layout.Gaps
+import XMonad.Hooks.ManageHelpers
+import XMonad.Hooks.DynamicLog hiding (xmobar)
+import XMonad.Actions.CycleWS
+import qualified Data.Map as M
+import XMonad.Util.Run (spawnPipe)
+import System.IO (hPutStrLn)
+import Graphics.X11
 
-myTerminal = "gnome-terminal"
-
-myLayout = avoidStruts (tiled ||| Mirror tiled ||| Full) ||| Full
-  where
-       -- default tiling algorithm partitions the screen into two panes
-       tiled   = Tall nmaster delta ratio
-       -- The default number of windows in the master pane
-       nmaster = 1
-       -- Default proportion of screen occupied by master pane
-       ratio   = 1/2
-       -- Percent of screen to increment by when resizing panes
-       delta   = 3/100
-
--- myLogHook = dynamicLogWithPP dzenPP
-
-myLogHook h = (dynamicLogWithPP (myPP h))
-
-myPP h = defaultPP 
-         { ppCurrent         = wrap "^bg(#e5f9ff)^fg(#105468)" "^bg()^fg()"
-         , ppVisible         = wrap "^fg(#a00000)" "^fg()"
-         , ppHidden          = wrap "^fg(#ffffff)" "^fg()"
-         , ppHiddenNoWindows = wrap "^fg(#7eacb9)" "^fg()"
-         , ppSep             = " | "
-         , ppWsSep           = "  "
-         , ppTitle           = shorten 80
-         , ppOrder           = (take 3) . workspaceTag
-         , ppOutput          = System.IO.UTF8.hPutStrLn h
+main :: IO ()
+main = do
+        xmobar <- spawnPipe "xmobar"
+        xmonad defaultConfig
+         { normalBorderColor  = "#121212"
+         , focusedBorderColor = "#c0c0c0"
+         , borderWidth        = 1
+         , terminal = "xterm"
+         , logHook = dynamicLogWithPP xmobarPP { ppTitle  = shorten 90 , ppLayout = (>> "") , ppOutput = hPutStrLn xmobar }
+         , layoutHook = avoidStruts $ smartBorders $ layoutHook defaultConfig
+         , keys = \c -> mykeys c `M.union` keys defaultConfig c
          }
-    where workspaceTag (x:xs) = ("[ " ++ x ++ " ]") : xs
-
-main = xmonad defaultConfig {
-    modMask = mod4Mask,
-    layoutHook = myLayout,
-    logHook = myLogHook
-}
+  where
+     mykeys (XConfig {XMonad.modMask = modm}) = M.fromList $
+             [ ((controlMask .|. modm, xK_Right), nextWS)
+             , ((controlMask .|. modm, xK_Left),  prevWS)
+             , ((modm, xK_g), spawn "google-chrome")
+             ]
 
