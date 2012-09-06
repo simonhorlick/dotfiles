@@ -6,6 +6,6 @@ xterm*termName: xterm-256color
 xterm*dynamicColors: true
 xterm*faceName: Monaco
 xterm*faceSize: 14
-xterm*background: white
-xterm*foreground: black
+xterm*background: #121212
+xterm*foreground: gray
 
