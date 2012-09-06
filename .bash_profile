@@ -11,6 +11,8 @@ fi
 
 . ~/.bash_git_aliases
 
+alias topcoder='javaws ~/projects/topcoder/ContestAppletProd.jnlp'
+
 # User specific environment and startup programs
 
 PATH=$PATH:$HOME/.local/bin:$HOME/bin
