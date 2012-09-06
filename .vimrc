@@ -80,24 +80,21 @@ let g:SuperTabDefaultCompletionType = "context"
 
 set completeopt=menu,menuone,longest
 
-let g:clang_debug=1
-
 " to use libclang, must build it manually (this will give a static build)
 " then it should just work
 let g:clang_use_library=1
 
 " open quickfix on error
 let g:clang_complete_copen = 1
+let g:clang_periodic_quickfix = 0
 " select suggestion and insert into code
-let g:clang_auto_select=2
-let g:clang_user_options='|| exit 0'
+let g:clang_auto_select = 1
 
-noremap <leader>p :python clang_plugin.jump_to_definition()<CR>
-noremap <leader>o :python clang_plugin.jump_to_declaration()<CR>
-noremap <leader>i :python clang_plugin.get_current_completions()<CR>
-noremap <leader>m :make<CR>
+map <Leader>m :make<CR>
 
-map <Leader>t :!./test<CR>
-
-call pathogen#infect()
+" HOHO :V
+map <Left> :echo "NOOOOOO!"<cr>
+map <Right> :echo "NOOOOOO!"<cr>
+map <Up> :echo "NOOOOOO!"<cr>
+map <Down> :echo "NOOOOOO!"<cr>
 
