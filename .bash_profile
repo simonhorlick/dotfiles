@@ -1,10 +1,5 @@
 # .bash_profile
 
-# Get the aliases and functions
-if [ -f ~/.bashrc ]; then
-	. ~/.bashrc
-fi
-
 # Bash completion
 if [ -f /etc/bash_completion ]; then
 	. /etc/bash_completion
