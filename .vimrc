@@ -4,7 +4,7 @@ filetype plugin on
 filetype indent on
 syntax on
 
-set path=.,/usr/local/include,/usr/include
+set path=.,/usr/local/include,/usr/include,/usr/local/include/c++/4.6.0/
 
 let mapleader = ","
 
