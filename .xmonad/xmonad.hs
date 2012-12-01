@@ -15,13 +15,11 @@ import Graphics.X11
 
 main :: IO ()
 main = do
-        xmobar <- spawnPipe "xmobar"
         xmonad defaultConfig
          { normalBorderColor = "#9fefef"
          , focusedBorderColor = "#55aaaa"
          , borderWidth = 4
          , terminal = "xterm"
-         , logHook = dynamicLogWithPP xmobarPP { ppTitle  = shorten 90 , ppLayout = (>> "") , ppOutput = hPutStrLn xmobar }
          , layoutHook = avoidStruts $ smartBorders $ layoutHook defaultConfig
          , keys = \c -> mykeys c `M.union` keys defaultConfig c
          }
