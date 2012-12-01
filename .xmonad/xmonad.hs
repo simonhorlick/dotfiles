@@ -17,9 +17,9 @@ main :: IO ()
 main = do
         xmobar <- spawnPipe "xmobar"
         xmonad defaultConfig
-         { normalBorderColor  = "#121212"
-         , focusedBorderColor = "#c0c0c0"
-         , borderWidth        = 1
+         { normalBorderColor = "#9fefef"
+         , focusedBorderColor = "#55aaaa"
+         , borderWidth = 4
          , terminal = "xterm"
          , logHook = dynamicLogWithPP xmobarPP { ppTitle  = shorten 90 , ppLayout = (>> "") , ppOutput = hPutStrLn xmobar }
          , layoutHook = avoidStruts $ smartBorders $ layoutHook defaultConfig
