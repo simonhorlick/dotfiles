@@ -1,16 +1,23 @@
 # Use arrow cursor instead of default X shape
 xsetroot -cursor_name left_ptr
 
+# Set xterm appearance
 xrdb ~/.Xresources
 
-#gnome-settings-daemon
+# Enable basic compositing
+xcompmgr -n &
 
-# Start GNOME Keyring
-eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
+# Set a desktop background
+nitrogen --restore &
 
-export SSH_AUTH_SOCK
-export GPG_AGENT_INFO
-export GNOME_KEYRING_CONTROL
-export GNOME_KEYRING_PID
+# Use gtk themes from gnome settings
+gnome-settings-daemon &
+
+# Start GNOME Keyring for login-based key unlocking
+eval $(gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
+
+# May as well launch these by default
+xterm & 
+google-chrome &
 
 exec xmonad

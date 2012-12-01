@@ -4,6 +4,7 @@
 if [ -f /etc/bash_completion ]; then
 	. /etc/bash_completion
 fi
+
 if [ -f ~/bin/git-completion.bash ]; then
 	. ~/bin/git-completion.bash
     PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
