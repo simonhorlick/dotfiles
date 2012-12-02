@@ -12,6 +12,8 @@ fi
 
 . ~/.bash_git_aliases
 
+# Fix stupid AWT behaviour with Xmonad, required for topcoder
+export _JAVA_AWT_WM_NONREPARENTING=1
 alias topcoder='javaws ~/projects/topcoder/ContestAppletProd.jnlp'
 
 # User specific environment and startup programs
