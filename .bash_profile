@@ -16,6 +16,8 @@ fi
 export _JAVA_AWT_WM_NONREPARENTING=1
 alias topcoder='javaws ~/projects/topcoder/ContestAppletProd.jnlp'
 
+export EDITOR=vim
+
 # User specific environment and startup programs
 
 PATH=$PATH:$HOME/.local/bin:$HOME/bin
