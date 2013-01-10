@@ -7,7 +7,7 @@ fi
 
 if [ -f ~/bin/git-completion.bash ]; then
 	. ~/bin/git-completion.bash
-    PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+    PS1='[\u@\h \A \W$(__git_ps1 " (%s)")]\$ '
 fi
 
 . ~/.bash_git_aliases
