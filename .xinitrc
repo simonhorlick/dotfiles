@@ -1,3 +1,6 @@
+# Start redshift depending on time of day
+redshift -c ~/.config/redshift.conf
+
 # Use arrow cursor instead of default X shape
 xsetroot -cursor_name left_ptr
 
