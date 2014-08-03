@@ -12,6 +12,9 @@ fi
 
 . ~/.bash_git_aliases
 
+# colours
+alias ls='ls --color=auto'
+
 # Fix stupid AWT behaviour with Xmonad, required for topcoder
 export _JAVA_AWT_WM_NONREPARENTING=1
 alias topcoder='javaws ~/projects/topcoder/ContestAppletProd.jnlp'
@@ -20,6 +23,7 @@ export EDITOR=vim
 
 # User specific environment and startup programs
 
-PATH=$PATH:$HOME/.local/bin:$HOME/bin
+PATH=$PATH:$HOME/.local/bin:$HOME/bin:$HOME/bin/sbt/bin:$HOME/bin/eclipse
+
 
 export PATH
