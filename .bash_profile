@@ -34,7 +34,13 @@ export DOCKER_TLS_VERIFY=1
 
 # User specific environment and startup programs
 
-PATH=$PATH:$HOME/.local/bin:$HOME/bin:$HOME/bin/sbt/bin:$HOME/bin/eclipse
-
+PATH=$HOME/.local/bin:$PATH
+PATH=$HOME/.cabal/bin:$PATH
+PATH=$HOME/bin:$PATH
+PATH=$HOME/bin/sbt/bin:$PATH
+PATH=$HOME/Library/Haskell/bin:$PATH
+PATH=$HOME/bin/eclipse:$PATH
+PATH=/usr/texbin:$PATH
+PATH=/usr/local/bin:$PATH
 
 export PATH
