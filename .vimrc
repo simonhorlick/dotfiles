@@ -15,14 +15,14 @@ colorscheme molokai
 set tabstop=4
 set shiftwidth=4
 "set nowrap
-set textwidth=79
+"set textwidth=79
 set number
 
 " Don't do weird stuff with backspace key
 set backspace=indent,eol,start
 
 " Break long lines
-set fo+=a
+" set fo+=a
 
 " Insert appropriate number of spaces for a tab
 set expandtab
