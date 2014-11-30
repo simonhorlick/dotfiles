@@ -28,6 +28,10 @@ alias topcoder='javaws ~/projects/topcoder/ContestAppletProd.jnlp'
 
 export EDITOR=vim
 
+# boot2docker environment variables
+export DOCKER_CERT_PATH=$HOME/.boot2docker/certs/boot2docker-vm
+export DOCKER_TLS_VERIFY=1
+
 # User specific environment and startup programs
 
 PATH=$PATH:$HOME/.local/bin:$HOME/bin:$HOME/bin/sbt/bin:$HOME/bin/eclipse
