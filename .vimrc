@@ -9,15 +9,7 @@ set path=.,/usr/local/include,/usr/include,/usr/local/include/c++/4.6.0/
 let mapleader = ","
 
 set t_Co=256
-if has('gui_running')
-    set guifont=Monaco:h15
-    set guioptions-=m
-    set guioptions-=T
-    set lines=25 columns=83
-    colorscheme google
-else
-    colorscheme molokai
-endif
+colorscheme molokai
     
 " Default formatting
 set tabstop=4
