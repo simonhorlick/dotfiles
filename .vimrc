@@ -12,8 +12,8 @@ set t_Co=256
 colorscheme molokai
     
 " Default formatting
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 "set nowrap
 "set textwidth=79
 set number
@@ -31,7 +31,7 @@ set smarttab
 " C-aware indentation
 set cindent
 " Don't indent public keyword in classes
-set cinoptions=h0
+"set cinoptions=h0
 "set smartindent
 
 " Find search term while typing
