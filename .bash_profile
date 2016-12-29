@@ -69,10 +69,14 @@ export HISTTIMEFORMAT="%d/%m/%y %T "
 export CLICOLOR=1
 
 # The next line updates PATH for the Google Cloud SDK.
-source '/Users/simon/bin/google-cloud-sdk/path.bash.inc'
+if [ -f /usr/local/bin/google-cloud-sdk/path.bash.inc ]; then
+  source '/usr/local/bin/google-cloud-sdk/path.bash.inc'
+fi
 
 # The next line enables shell command completion for gcloud.
-source '/Users/simon/bin/google-cloud-sdk/completion.bash.inc'
+if [ -f /usr/local/bin/google-cloud-sdk/completion.bash.inc ]; then
+  source '/usr/local/bin/google-cloud-sdk/completion.bash.inc'
+fi
 
 alias staging='kubectl --namespace=staging'
 alias prod='kubectl --namespace=prod'
