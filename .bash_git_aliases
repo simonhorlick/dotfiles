@@ -6,4 +6,3 @@ alias gl="git log"
 alias gr="git rebase"
 alias gf="git format-patch --stdout"
 alias ga="git add"
-

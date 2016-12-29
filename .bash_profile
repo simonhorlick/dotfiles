@@ -15,22 +15,19 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     # Bash completion
     if [ -f `brew --prefix`/etc/bash_completion ]; then
         . `brew --prefix`/etc/bash_completion
-        PS1=$git_PS1
     fi
+    source /Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-prompt.sh
+    PS1=$git_PS1
     export JAVA_HOME=$(/usr/libexec/java_home)
 fi
 
-. ~/.bash_git_aliases
+source /etc/bash_completion.d/*
 
-# Fix stupid AWT behaviour with Xmonad, required for topcoder
-export _JAVA_AWT_WM_NONREPARENTING=1
-alias topcoder='javaws ~/projects/topcoder/ContestAppletProd.jnlp'
+. ~/.bash_git_aliases
 
 export EDITOR=vim
 
-# boot2docker environment variables
-export DOCKER_CERT_PATH=$HOME/.boot2docker/certs/boot2docker-vm
-export DOCKER_TLS_VERIFY=1
+export SCALA_HOME=/usr/local/share/scala
 
 # User specific environment and startup programs
 
@@ -38,9 +35,53 @@ PATH=$HOME/.local/bin:$PATH
 PATH=$HOME/.cabal/bin:$PATH
 PATH=$HOME/bin:$PATH
 PATH=$HOME/bin/sbt/bin:$PATH
+PATH=$HOME/projects/gocode/bin:$PATH
 PATH=$HOME/Library/Haskell/bin:$PATH
 PATH=$HOME/bin/eclipse:$PATH
+PATH=$HOME/Library/Android/sdk/tools:$PATH
+PATH=$HOME/Library/Android/sdk/platform-tools:$PATH
 PATH=/usr/texbin:$PATH
 PATH=/usr/local/bin:$PATH
+PATH=$SCALA_HOME/bin:$PATH
+PATH=/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources:$PATH
+PATH=$HOME/projects/compiler/bazel/output:$PATH
+PATH=$HOME/projects/compiler/buildifier/bazel-bin/buildifier:$PATH
+PATH=/usr/local/opt/go/libexec/bin:$PATH
+PATH=/usr/local/texlive/2016/bin/x86_64-darwin:$PATH
+PATH=/Users/simon/projects/lib/flutter/bin:$PATH
 
 export PATH
+
+source <(kubectl completion bash)
+
+export GOPATH=~/projects/gocode
+
+# unlimited history
+export HISTSIZE=""
+
+# Avoid duplicates
+export HISTCONTROL=ignoredups:erasedups  
+
+# When the shell exits, append to the history file instead of overwriting it
+shopt -s histappend
+
+export HISTTIMEFORMAT="%d/%m/%y %T "
+export CLICOLOR=1
+
+# The next line updates PATH for the Google Cloud SDK.
+source '/Users/simon/bin/google-cloud-sdk/path.bash.inc'
+
+# The next line enables shell command completion for gcloud.
+source '/Users/simon/bin/google-cloud-sdk/completion.bash.inc'
+
+alias staging='kubectl --namespace=staging'
+alias prod='kubectl --namespace=prod'
+alias ci='kubectl --namespace=ci'
+
+alias k='kubectl'
+alias t='kubectl --namespace=test'
+
+export ZONE=europe-west1-d
+export GCR_REGION=eu.gcr.io # or asia.gcr.io
+
+export ANDROID_HOME=/Users/simon/Library/Android/sdk
