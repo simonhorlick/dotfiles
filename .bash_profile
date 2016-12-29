@@ -21,8 +21,6 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
     export JAVA_HOME=$(/usr/libexec/java_home)
 fi
 
-source /etc/bash_completion.d/*
-
 . ~/.bash_git_aliases
 
 export EDITOR=vim
