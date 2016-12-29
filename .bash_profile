@@ -31,24 +31,24 @@ export SCALA_HOME=/usr/local/share/scala
 
 # User specific environment and startup programs
 
-PATH=$HOME/.local/bin:$PATH
 PATH=$HOME/.cabal/bin:$PATH
-PATH=$HOME/bin:$PATH
-PATH=$HOME/bin/sbt/bin:$PATH
-PATH=$HOME/projects/gocode/bin:$PATH
+PATH=$HOME/.local/bin:$PATH
+PATH=$HOME/Library/Android/sdk/platform-tools:$PATH
+PATH=$HOME/Library/Android/sdk/tools:$PATH
 PATH=$HOME/Library/Haskell/bin:$PATH
 PATH=$HOME/bin/eclipse:$PATH
-PATH=$HOME/Library/Android/sdk/tools:$PATH
-PATH=$HOME/Library/Android/sdk/platform-tools:$PATH
-PATH=/usr/texbin:$PATH
-PATH=/usr/local/bin:$PATH
-PATH=$SCALA_HOME/bin:$PATH
-PATH=/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources:$PATH
+PATH=$HOME/bin/sbt/bin:$PATH
+PATH=$HOME/bin:$PATH
 PATH=$HOME/projects/compiler/bazel/output:$PATH
 PATH=$HOME/projects/compiler/buildifier/bazel-bin/buildifier:$PATH
+PATH=$HOME/projects/gocode/bin:$PATH
+PATH=$HOME/projects/lib/flutter/bin:$PATH
+PATH=$SCALA_HOME/bin:$PATH
+PATH=/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources:$PATH
+PATH=/usr/local/bin:$PATH
 PATH=/usr/local/opt/go/libexec/bin:$PATH
 PATH=/usr/local/texlive/2016/bin/x86_64-darwin:$PATH
-PATH=/Users/simon/projects/lib/flutter/bin:$PATH
+PATH=/usr/texbin:$PATH
 
 export PATH
 
@@ -88,4 +88,4 @@ alias t='kubectl --namespace=test'
 export ZONE=europe-west1-d
 export GCR_REGION=eu.gcr.io # or asia.gcr.io
 
-export ANDROID_HOME=/Users/simon/Library/Android/sdk
+export ANDROID_HOME=$HOME/Library/Android/sdk
