@@ -22,3 +22,16 @@ Thumbs.db
 
 # Temporary files
 *.un~
+*.swp
+
+
+# IntelliJ IDEA project files and directories
+*.iml
+*.ipr
+*.iws
+.idea/
+
+bazel-bin
+bazel-genfiles
+bazel-out
+bazel-testlogs
