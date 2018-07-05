@@ -8,7 +8,6 @@
 
 # Logs and database
 *.log
-*.sql
 *.sqlite
 
 # OS generated files
@@ -31,7 +30,6 @@ Thumbs.db
 *.iws
 .idea/
 
-bazel-bin
-bazel-genfiles
-bazel-out
-bazel-testlogs
+bazel-*
+
+node_modules

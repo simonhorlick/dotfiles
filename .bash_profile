@@ -1,6 +1,5 @@
 # .bash_profile
 
-git_PS1='[\u@\h \A \W$(__git_ps1 " (%s)")]\$ '
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
     # Bash completion
     if [ -f /etc/bash_completion ]; then
@@ -8,54 +7,45 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
     fi
     if [ -f ~/bin/git-completion.bash ]; then
         . ~/bin/git-completion.bash
-        PS1=$git_PS1
     fi
-    alias ls='ls --color=auto'
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     # Bash completion
     if [ -f `brew --prefix`/etc/bash_completion ]; then
         . `brew --prefix`/etc/bash_completion
     fi
-    source /Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-prompt.sh
-    PS1=$git_PS1
     export JAVA_HOME=$(/usr/libexec/java_home)
 fi
 
+# Short and sweet.
+export PROMPT_COMMAND='PS1="🍉 "'
+
+# Commonly used git aliases.
 . ~/.bash_git_aliases
 
+# Set the default editor so we don't accidentally use *shudder* nano.
 export EDITOR=vim
 
-export SCALA_HOME=/usr/local/share/scala
+export ANDROID_HOME=$HOME/lib/android-sdk
+export ANDROID_NDK_HOME=$ANDROID_HOME/ndk-bundle
 
-# User specific environment and startup programs
+# Set GOPATH so we build binaries to ~/bin and sources under ~/src.
+export GOPATH=$HOME
 
+# Look for binaries everywhere.
+PATH=$ANDROID_HOME/tools:$PATH
 PATH=$HOME/.cabal/bin:$PATH
-PATH=$HOME/.local/bin:$PATH
-PATH=$HOME/Library/Android/sdk/platform-tools:$PATH
-PATH=$HOME/Library/Android/sdk/tools:$PATH
+PATH=$HOME/.pub-cache/bin:$PATH
 PATH=$HOME/Library/Haskell/bin:$PATH
-PATH=$HOME/bin/eclipse:$PATH
-PATH=$HOME/bin/sbt/bin:$PATH
 PATH=$HOME/bin:$PATH
-PATH=$HOME/projects/compiler/bazel/output:$PATH
-PATH=$HOME/projects/compiler/buildifier/bazel-bin/buildifier:$PATH
-PATH=$HOME/projects/go/bin:$PATH
-PATH=$HOME/projects/lib/flutter/bin:$PATH
-PATH=$SCALA_HOME/bin:$PATH
+PATH=$HOME/src/github.com/flutter/flutter/bin:$PATH
 PATH=/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources:$PATH
 PATH=/usr/local/bin:$PATH
 PATH=/usr/local/opt/go/libexec/bin:$PATH
-PATH=/usr/local/texlive/2016/bin/x86_64-darwin:$PATH
-PATH=/usr/texbin:$PATH
+
+# Replace system curl.
+PATH=/usr/local/opt/curl/bin:$PATH
 
 export PATH
-
-source <(kubectl completion bash)
-
-export GOPATH=~/projects/gocode
-
-# unlimited history
-export HISTSIZE=""
 
 # Avoid duplicates
 export HISTCONTROL=ignoredups:erasedups  
@@ -63,7 +53,14 @@ export HISTCONTROL=ignoredups:erasedups
 # When the shell exits, append to the history file instead of overwriting it
 shopt -s histappend
 
+# Eternal bash history.
+export HISTFILESIZE=
+export HISTSIZE=
+export HISTFILE=~/.bash_eternal_history
+# Force prompt to write history after every command.
+PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 export HISTTIMEFORMAT="%d/%m/%y %T "
+
 export CLICOLOR=1
 
 # The next line updates PATH for the Google Cloud SDK.
@@ -76,14 +73,15 @@ if [ -f /usr/local/bin/google-cloud-sdk/completion.bash.inc ]; then
   source '/usr/local/bin/google-cloud-sdk/completion.bash.inc'
 fi
 
-alias staging='kubectl --namespace=staging'
-alias prod='kubectl --namespace=prod'
-alias ci='kubectl --namespace=ci'
+# Add some more information to the output of ls
+alias ls='ls -GFh'
+alias ll='ls -GFh'
 
 alias k='kubectl'
-alias t='kubectl --namespace=test'
+alias kk='kubectl get pods'
+alias kls='k config get-contexts'
+alias kcd='k config use-context'
 
-export ZONE=europe-west1-d
-export GCR_REGION=eu.gcr.io # or asia.gcr.io
+alias ss='cd ~/src/github.com/simonhorlick; pwd'
 
-export ANDROID_HOME=$HOME/Library/Android/sdk
+source <(kubectl completion bash)
